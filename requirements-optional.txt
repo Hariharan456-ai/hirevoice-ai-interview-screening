@@ -1,0 +1,6 @@
+# Optional extras:  pip install -r requirements-optional.txt
+rapidocr-onnxruntime>=1.3     # read scanned / photo resumes (local OCR)
+pypdfium2>=4.30               # renders PDF pages for OCR
+google-api-python-client>=2.100   # Google Drive links for PDFs
+google-auth-oauthlib>=1.2
+pyVoIP==1.6.8                  # real phone calls over SIP (pure Python)

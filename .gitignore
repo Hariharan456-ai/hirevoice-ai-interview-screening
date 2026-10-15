@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+data/*.db
+data/uploads/*
+data/resumes/*
+data/transcripts/*
+data/reports/*
+data/exports/*
+data/tts_cache/*
+models/piper/*
+!.gitkeep

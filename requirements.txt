@@ -1,0 +1,9 @@
+Flask>=3.0
+Werkzeug>=3.0
+faster-whisper>=1.0.3
+openpyxl>=3.1
+requests>=2.31
+pypdf>=4.0
+reportlab>=4.0
+cryptography>=42.0
+piper-tts>=1.3.0
