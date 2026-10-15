@@ -1,0 +1,1398 @@
+[
+ {
+  "name": "Accounts / Finance & Compliance",
+  "description": "Accounts, GST/TDS, reconciliation, audit, ERP/MIS",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your role?",
+   "What issue did you find?",
+   "What action did you take?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you have a B.Com or M.Com qualification?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you have CA (Inter) or ICWA/CMA (Inter)?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Tell us about your accounting experience and your main responsibilities."
+   },
+   {
+    "category": "Accounting Operations",
+    "question": "What accounting operations have you handled independently?"
+   },
+   {
+    "category": "Accounting Operations",
+    "question": "How do you ensure accounting entries are accurate?"
+   },
+   {
+    "category": "Accounting Operations",
+    "question": "Tell us about a difficult accounting issue you handled."
+   },
+   {
+    "category": "GST & TDS Compliance",
+    "question": "What experience do you have with GST and TDS compliance?"
+   },
+   {
+    "category": "GST & TDS Compliance",
+    "question": "How do you ensure tax-related filings and payments are completed correctly and on time?"
+   },
+   {
+    "category": "GST & TDS Compliance",
+    "question": "Tell us about a GST or TDS issue you identified and resolved."
+   },
+   {
+    "category": "Reconciliation & Financial Controls",
+    "question": "What types of reconciliations have you handled?"
+   },
+   {
+    "category": "Reconciliation & Financial Controls",
+    "question": "How do you identify and resolve reconciliation differences?"
+   },
+   {
+    "category": "Reconciliation & Financial Controls",
+    "question": "Tell us about a control weakness you identified and how you improved it."
+   },
+   {
+    "category": "Audit & Compliance",
+    "question": "Have you coordinated internal or external audits?"
+   },
+   {
+    "category": "Audit & Compliance",
+    "question": "How do you prepare documents and information required for an audit?"
+   },
+   {
+    "category": "Audit & Compliance",
+    "question": "Tell us about a difficult audit observation or issue you handled."
+   },
+   {
+    "category": "ERP & MIS Reporting",
+    "question": "Which ERP or accounting systems have you worked with?"
+   },
+   {
+    "category": "ERP & MIS Reporting",
+    "question": "What financial or MIS reports have you prepared?"
+   },
+   {
+    "category": "ERP & MIS Reporting",
+    "question": "Tell us about a report or system improvement you introduced."
+   },
+   {
+    "category": "Process Improvement",
+    "question": "Have you improved an accounting or finance process?"
+   },
+   {
+    "category": "Process Improvement",
+    "question": "How do you identify areas where a finance process can be improved?"
+   },
+   {
+    "category": "Process Improvement",
+    "question": "Tell us about one process improvement you implemented and its result."
+   },
+   {
+    "category": "Analytical Skills & Ownership",
+    "question": "How do you identify unusual or incorrect financial information?"
+   },
+   {
+    "category": "Analytical Skills & Ownership",
+    "question": "Tell us about a financial problem where you had to investigate the root cause."
+   },
+   {
+    "category": "Analytical Skills & Ownership",
+    "question": "How do you manage multiple accounting and compliance deadlines at the same time?"
+   }
+  ]
+ },
+ {
+  "name": "Assistant Director – K-GEO",
+  "description": "Global engagement / international office (K-GEO)",
+  "followup_chain": [
+   "Can you give us one example?",
+   "What was your role in it?",
+   "What was the main challenge?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Experience",
+    "question": "Tell us about your experience in international education or global engagement."
+   },
+   {
+    "category": "Experience",
+    "question": "What kind of international responsibilities have you handled?"
+   },
+   {
+    "category": "Experience",
+    "question": "Can you give us one example of an international project you handled?"
+   },
+   {
+    "category": "International Partnerships",
+    "question": "How have you developed or maintained international partnerships?"
+   },
+   {
+    "category": "International Partnerships",
+    "question": "What do you think makes an international partnership successful?"
+   },
+   {
+    "category": "International Partnerships",
+    "question": "Tell us about a difficult situation with an international partner and how you handled it."
+   },
+   {
+    "category": "Student Mobility",
+    "question": "What experience do you have with student exchange or mobility programmes?"
+   },
+   {
+    "category": "Student Mobility",
+    "question": "How would you support students going abroad?"
+   },
+   {
+    "category": "Student Mobility",
+    "question": "Can you give us an example of a student mobility challenge you handled?"
+   },
+   {
+    "category": "Programme Management",
+    "question": "How do you manage an international programme from start to finish?"
+   },
+   {
+    "category": "Programme Management",
+    "question": "How do you make sure deadlines and responsibilities are followed?"
+   },
+   {
+    "category": "Programme Management",
+    "question": "Tell us about a programme you managed and the result you achieved."
+   },
+   {
+    "category": "Communication & Teamwork",
+    "question": "How do you communicate with students, staff and international partners?"
+   },
+   {
+    "category": "Communication & Teamwork",
+    "question": "How do you handle different opinions within a team?"
+   },
+   {
+    "category": "Communication & Teamwork",
+    "question": "Can you give us an example of a teamwork challenge you successfully handled?"
+   },
+   {
+    "category": "Leadership & Initiative",
+    "question": "How would you describe your leadership style?"
+   },
+   {
+    "category": "Leadership & Initiative",
+    "question": "How do you take initiative when you see a problem?"
+   },
+   {
+    "category": "Leadership & Initiative",
+    "question": "Tell us about a time when you took the lead and achieved a positive result."
+   },
+   {
+    "category": "Innovation",
+    "question": "How would you bring new ideas to K-GEO?"
+   },
+   {
+    "category": "Innovation",
+    "question": "How do you identify opportunities to improve international activities?"
+   },
+   {
+    "category": "Innovation",
+    "question": "Can you give us an example of an innovative idea you introduced?"
+   },
+   {
+    "category": "Data & Student Impact",
+    "question": "How would you measure the success of an international programme?"
+   },
+   {
+    "category": "Data & Student Impact",
+    "question": "What information or data would you use to improve student engagement?"
+   },
+   {
+    "category": "Data & Student Impact",
+    "question": "Tell us about a time when you used feedback or data to improve a programme."
+   },
+   {
+    "category": "Cross-Cultural Skills",
+    "question": "How do you work effectively with people from different cultures?"
+   },
+   {
+    "category": "Cross-Cultural Skills",
+    "question": "What do you do when cultural expectations are different?"
+   },
+   {
+    "category": "Cross-Cultural Skills",
+    "question": "Can you give us an example of handling a cross-cultural situation?"
+   },
+   {
+    "category": "Professionalism & Ethics",
+    "question": "How do you handle confidential or sensitive information?"
+   },
+   {
+    "category": "Professionalism & Ethics",
+    "question": "How do you maintain professionalism when dealing with difficult situations?"
+   },
+   {
+    "category": "Professionalism & Ethics",
+    "question": "Tell us about a situation where you had to make a difficult professional decision."
+   }
+  ]
+ },
+ {
+  "name": "Librarian – KCLAS",
+  "description": "Academic librarian, Kumaraguru College of Liberal Arts and Sciences",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you have UG and PG qualifications in Library Science?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Are you UGC-NET / SET qualified or do you hold a PhD?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Tell us about your experience working in an academic library."
+   },
+   {
+    "category": "Library Management",
+    "question": "Have you managed the day-to-day operations of an academic library?"
+   },
+   {
+    "category": "Library Management",
+    "question": "How do you organise and manage library resources effectively?"
+   },
+   {
+    "category": "Library Management",
+    "question": "Tell us about a library-management challenge you handled."
+   },
+   {
+    "category": "Digital & Hybrid Library",
+    "question": "Have you managed digital library resources such as e-books, journals, or academic databases?"
+   },
+   {
+    "category": "Digital & Hybrid Library",
+    "question": "How do you help users access both physical and digital resources?"
+   },
+   {
+    "category": "Digital & Hybrid Library",
+    "question": "Tell us about a digital library system or resource you implemented or managed."
+   },
+   {
+    "category": "Library Automation & Technology",
+    "question": "Have you worked with library automation or library-management systems?"
+   },
+   {
+    "category": "Library Automation & Technology",
+    "question": "How can emerging technologies improve library services?"
+   },
+   {
+    "category": "Library Automation & Technology",
+    "question": "Tell us about a technology or automation improvement you introduced."
+   },
+   {
+    "category": "Student Engagement",
+    "question": "How would you encourage students to use the library regularly?"
+   },
+   {
+    "category": "Student Engagement",
+    "question": "How would you engage students who rarely visit the library?"
+   },
+   {
+    "category": "Student Engagement",
+    "question": "Tell us about an initiative you introduced to increase library participation."
+   },
+   {
+    "category": "Reading & Learning Culture",
+    "question": "How would you develop a strong reading culture among students?"
+   },
+   {
+    "category": "Reading & Learning Culture",
+    "question": "How would you make the library a place where students enjoy learning and exploring knowledge?"
+   },
+   {
+    "category": "Reading & Learning Culture",
+    "question": "Tell us about a reading, learning, or library activity you organised."
+   },
+   {
+    "category": "Research Support",
+    "question": "Have you supported students or faculty with academic research?"
+   },
+   {
+    "category": "Research Support",
+    "question": "How do you help users find reliable academic information?"
+   },
+   {
+    "category": "Research Support",
+    "question": "Tell us about a research-support situation where you helped someone solve a difficult information problem."
+   },
+   {
+    "category": "User Services",
+    "question": "How do you understand and respond to different user needs?"
+   },
+   {
+    "category": "User Services",
+    "question": "How would you handle a student or faculty member who is dissatisfied with a library service?"
+   },
+   {
+    "category": "User Services",
+    "question": "Tell us about a difficult user-service situation you handled."
+   },
+   {
+    "category": "Academic Collaboration",
+    "question": "Have you worked with faculty or academic departments to support teaching and research?"
+   },
+   {
+    "category": "Academic Collaboration",
+    "question": "How would you collaborate with faculty to improve students' use of academic resources?"
+   },
+   {
+    "category": "Academic Collaboration",
+    "question": "Tell us about an academic collaboration you were personally involved in."
+   },
+   {
+    "category": "Vision & Innovation",
+    "question": "What would you improve in an academic library over the next few years?"
+   },
+   {
+    "category": "Vision & Innovation",
+    "question": "How would you balance traditional books with digital and emerging technologies?"
+   },
+   {
+    "category": "Vision & Innovation",
+    "question": "If you joined KCLAS, what would you want students to experience when they enter the library?"
+   }
+  ]
+ },
+ {
+  "name": "Leadership Opportunity – Kumaraguru Institute of Agriculture",
+  "description": "Senior academic leadership (head of agriculture institute)",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Academic Leadership",
+    "question": "Have you held a senior academic leadership role?"
+   },
+   {
+    "category": "Academic Leadership",
+    "question": "What was your main responsibility as a leader?"
+   },
+   {
+    "category": "Academic Leadership",
+    "question": "Tell us about one academic improvement you personally led."
+   },
+   {
+    "category": "Research Leadership",
+    "question": "Have you led major research projects or research teams?"
+   },
+   {
+    "category": "Research Leadership",
+    "question": "Have you secured or contributed to funded research?"
+   },
+   {
+    "category": "Research Leadership",
+    "question": "Tell us about a research initiative you led and its outcome."
+   },
+   {
+    "category": "Institutional Development",
+    "question": "Have you been involved in institutional development or strategic planning?"
+   },
+   {
+    "category": "Institutional Development",
+    "question": "What major institutional change have you personally contributed to?"
+   },
+   {
+    "category": "Institutional Development",
+    "question": "Tell us about an institutional challenge you faced and how you handled it."
+   },
+   {
+    "category": "Faculty Leadership",
+    "question": "Have you led or managed a team of faculty members?"
+   },
+   {
+    "category": "Faculty Leadership",
+    "question": "How do you support faculty development and performance?"
+   },
+   {
+    "category": "Faculty Leadership",
+    "question": "Tell us about a difficult faculty-related situation you handled."
+   },
+   {
+    "category": "Student & Academic Development",
+    "question": "Have you introduced an initiative that improved student learning or development?"
+   },
+   {
+    "category": "Student & Academic Development",
+    "question": "How do you identify areas where students need improvement?"
+   },
+   {
+    "category": "Student & Academic Development",
+    "question": "Tell us about a student-related academic challenge you solved."
+   },
+   {
+    "category": "Industry & External Engagement",
+    "question": "Have you developed partnerships with industry or external organisations?"
+   },
+   {
+    "category": "Industry & External Engagement",
+    "question": "How do you identify meaningful industry opportunities for an agriculture institute?"
+   },
+   {
+    "category": "Industry & External Engagement",
+    "question": "Tell us about a partnership you developed and its result."
+   },
+   {
+    "category": "Innovation & Agriculture",
+    "question": "How do you see agriculture education changing over the next few years?"
+   },
+   {
+    "category": "Innovation & Agriculture",
+    "question": "What new areas would you explore for the institute?"
+   },
+   {
+    "category": "Innovation & Agriculture",
+    "question": "Tell us about an innovative agriculture-related initiative you introduced or supported."
+   },
+   {
+    "category": "Strategy & Vision",
+    "question": "What would be your priorities when leading an agriculture institute?"
+   },
+   {
+    "category": "Strategy & Vision",
+    "question": "How would you balance teaching, research, institutional development and industry engagement?"
+   },
+   {
+    "category": "Strategy & Vision",
+    "question": "If you joined the institute, what would you want to achieve in your first few years?"
+   },
+   {
+    "category": "Decision-Making & Problem Solving",
+    "question": "How do you make important decisions when different stakeholders disagree?"
+   },
+   {
+    "category": "Decision-Making & Problem Solving",
+    "question": "Tell us about a difficult decision you made as an academic leader."
+   },
+   {
+    "category": "Decision-Making & Problem Solving",
+    "question": "What was the result, and what did you learn?"
+   },
+   {
+    "category": "Leadership & Professionalism",
+    "question": "How do you build trust with faculty, students and external stakeholders?"
+   },
+   {
+    "category": "Leadership & Professionalism",
+    "question": "Tell us about a leadership situation where you faced strong resistance."
+   },
+   {
+    "category": "Leadership & Professionalism",
+    "question": "What is one leadership decision you would handle differently today?"
+   }
+  ]
+ },
+ {
+  "name": "Management Faculty – Associate Professor (KCT Business School)",
+  "description": "KCT Business School – Associate Professor",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you hold a full-time MBA?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "What is your area of management specialization?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Tell us about your academic or industry experience in management."
+   },
+   {
+    "category": "Teaching",
+    "question": "Have you taught management-related subjects?"
+   },
+   {
+    "category": "Teaching",
+    "question": "How do you make management concepts practical for students?"
+   },
+   {
+    "category": "Teaching",
+    "question": "Tell us about one teaching method or activity that worked particularly well."
+   },
+   {
+    "category": "Research",
+    "question": "Are you currently involved in management research?"
+   },
+   {
+    "category": "Research",
+    "question": "Have you published research papers or worked on research projects?"
+   },
+   {
+    "category": "Research",
+    "question": "Tell us about one research project you are particularly involved in."
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "Have you mentored students academically or professionally?"
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "How do you support students who are struggling academically?"
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "Tell us about a difficult student situation you handled."
+   },
+   {
+    "category": "Industry Integration",
+    "question": "Do you have experience working with industry?"
+   },
+   {
+    "category": "Industry Integration",
+    "question": "How would you bring real industry practices into the classroom?"
+   },
+   {
+    "category": "Industry Integration",
+    "question": "Tell us about an industry collaboration, project, or case you were involved in."
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "How do you engage students who are not actively participating?"
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "How do you handle different learning abilities in the same classroom?"
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "Tell us about a challenging classroom situation you handled."
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "Have you introduced any new teaching or learning methods?"
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "How could AI or technology improve management education?"
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "Tell us about an innovative academic initiative you introduced."
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Have you contributed to curriculum or course development?"
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Have you participated in academic committees or institutional initiatives?"
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Tell us about an academic improvement you personally contributed to."
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "How do you prepare management students for the workplace?"
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "How would you help students develop industry-relevant skills?"
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "Tell us about a student initiative that improved career or industry readiness."
+   },
+   {
+    "category": "Associate Professor – Leadership",
+    "question": "Have you led an academic programme, committee, research team, or faculty initiative?"
+   },
+   {
+    "category": "Associate Professor – Leadership",
+    "question": "Tell us about a leadership responsibility you handled."
+   },
+   {
+    "category": "Associate Professor – Leadership",
+    "question": "What was the outcome?"
+   }
+  ]
+ },
+ {
+  "name": "Management Faculty – Assistant Professor (KCT Business School)",
+  "description": "KCT Business School – Assistant Professor",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you hold a full-time MBA?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "What is your area of management specialization?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Tell us about your academic or industry experience in management."
+   },
+   {
+    "category": "Teaching",
+    "question": "Have you taught management-related subjects?"
+   },
+   {
+    "category": "Teaching",
+    "question": "How do you make management concepts practical for students?"
+   },
+   {
+    "category": "Teaching",
+    "question": "Tell us about one teaching method or activity that worked particularly well."
+   },
+   {
+    "category": "Research",
+    "question": "Are you currently involved in management research?"
+   },
+   {
+    "category": "Research",
+    "question": "Have you published research papers or worked on research projects?"
+   },
+   {
+    "category": "Research",
+    "question": "Tell us about one research project you are particularly involved in."
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "Have you mentored students academically or professionally?"
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "How do you support students who are struggling academically?"
+   },
+   {
+    "category": "Student Mentoring",
+    "question": "Tell us about a difficult student situation you handled."
+   },
+   {
+    "category": "Industry Integration",
+    "question": "Do you have experience working with industry?"
+   },
+   {
+    "category": "Industry Integration",
+    "question": "How would you bring real industry practices into the classroom?"
+   },
+   {
+    "category": "Industry Integration",
+    "question": "Tell us about an industry collaboration, project, or case you were involved in."
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "How do you engage students who are not actively participating?"
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "How do you handle different learning abilities in the same classroom?"
+   },
+   {
+    "category": "Classroom & Communication",
+    "question": "Tell us about a challenging classroom situation you handled."
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "Have you introduced any new teaching or learning methods?"
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "How could AI or technology improve management education?"
+   },
+   {
+    "category": "Innovation & Technology",
+    "question": "Tell us about an innovative academic initiative you introduced."
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Have you contributed to curriculum or course development?"
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Have you participated in academic committees or institutional initiatives?"
+   },
+   {
+    "category": "Academic Contribution",
+    "question": "Tell us about an academic improvement you personally contributed to."
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "How do you prepare management students for the workplace?"
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "How would you help students develop industry-relevant skills?"
+   },
+   {
+    "category": "Career & Industry Readiness",
+    "question": "Tell us about a student initiative that improved career or industry readiness."
+   },
+   {
+    "category": "Assistant Professor – Contribution",
+    "question": "What would you like to contribute beyond classroom teaching?"
+   },
+   {
+    "category": "Assistant Professor – Contribution",
+    "question": "What academic or research area would you like to develop?"
+   },
+   {
+    "category": "Assistant Professor – Contribution",
+    "question": "How would you contribute to the growth of KCT Business School?"
+   }
+  ]
+ },
+ {
+  "name": "Operations Executive – RIG, KCT",
+  "description": "Operations & coordination executive",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Background & Experience",
+    "question": "Do you have an engineering background?"
+   },
+   {
+    "category": "Background & Experience",
+    "question": "Tell us about your previous operations or coordination experience."
+   },
+   {
+    "category": "Background & Experience",
+    "question": "What was your personal responsibility in your previous role?"
+   },
+   {
+    "category": "Coordination & Follow-up",
+    "question": "How do you manage multiple tasks and people at the same time?"
+   },
+   {
+    "category": "Coordination & Follow-up",
+    "question": "How do you follow up when someone does not complete their task on time?"
+   },
+   {
+    "category": "Coordination & Follow-up",
+    "question": "Tell us about a situation where you coordinated several people to complete something."
+   },
+   {
+    "category": "Problem Solving",
+    "question": "How do you handle unexpected problems during an ongoing activity?"
+   },
+   {
+    "category": "Problem Solving",
+    "question": "Tell us about a situation where something went wrong and you had to solve it quickly."
+   },
+   {
+    "category": "Problem Solving",
+    "question": "What do you do when you don't have enough information to make a decision?"
+   },
+   {
+    "category": "Students & Faculty",
+    "question": "Have you worked with students, faculty, or academic teams before?"
+   },
+   {
+    "category": "Students & Faculty",
+    "question": "How would you handle different expectations from students and faculty?"
+   },
+   {
+    "category": "Students & Faculty",
+    "question": "Tell us about a situation where you helped a team or student complete a difficult task."
+   },
+   {
+    "category": "Events & Execution",
+    "question": "Have you organised or supported an event, workshop, project, or programme?"
+   },
+   {
+    "category": "Events & Execution",
+    "question": "How do you make sure all event activities are completed on time?"
+   },
+   {
+    "category": "Events & Execution",
+    "question": "Tell us about an event or project you handled from planning to completion."
+   },
+   {
+    "category": "Ownership & Fast-Paced Work",
+    "question": "How do you decide what needs your attention first when everything seems urgent?"
+   },
+   {
+    "category": "Ownership & Fast-Paced Work",
+    "question": "Tell us about a time when you took ownership of a problem without being asked."
+   },
+   {
+    "category": "Ownership & Fast-Paced Work",
+    "question": "If you joined RIG, what would you do in your first few weeks to understand the organisation and contribute effectively?"
+   }
+  ]
+ },
+ {
+  "name": "Program Manager – Entrepreneurship",
+  "description": "Startup / entrepreneurship programme manager",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "Why did you choose that approach?",
+   "What was the result?",
+   "What did you learn?"
+  ],
+  "questions": [
+   {
+    "category": "Entrepreneurship Experience",
+    "question": "Have you worked with startups, founders, entrepreneurs, or student ventures?"
+   },
+   {
+    "category": "Entrepreneurship Experience",
+    "question": "Tell us about one startup or entrepreneurship project you worked on."
+   },
+   {
+    "category": "Entrepreneurship Experience",
+    "question": "What was your personal responsibility in that project?"
+   },
+   {
+    "category": "Idea to MVP",
+    "question": "Have you helped someone develop an idea into a product or service?"
+   },
+   {
+    "category": "Idea to MVP",
+    "question": "How would you help a founder move from an idea to an MVP?"
+   },
+   {
+    "category": "Idea to MVP",
+    "question": "Tell us about a project where you helped turn an idea into something real."
+   },
+   {
+    "category": "Programme Design & Execution",
+    "question": "Have you designed or managed an entrepreneurship or startup programme?"
+   },
+   {
+    "category": "Programme Design & Execution",
+    "question": "How do you plan and execute a programme from beginning to end?"
+   },
+   {
+    "category": "Programme Design & Execution",
+    "question": "Tell us about a programme you managed and what happened."
+   },
+   {
+    "category": "Founder & Student Support",
+    "question": "Have you worked directly with students, founders, or early-stage entrepreneurs?"
+   },
+   {
+    "category": "Founder & Student Support",
+    "question": "How would you support a founder who is struggling to move forward?"
+   },
+   {
+    "category": "Founder & Student Support",
+    "question": "Tell us about a time you helped someone overcome a difficult project or business problem."
+   },
+   {
+    "category": "Startup Pipeline & Incubation",
+    "question": "Have you managed multiple startups, projects, or teams at the same time?"
+   },
+   {
+    "category": "Startup Pipeline & Incubation",
+    "question": "How would you track the progress of different startup teams?"
+   },
+   {
+    "category": "Startup Pipeline & Incubation",
+    "question": "Tell us about a situation where you had to decide which project needed attention first."
+   },
+   {
+    "category": "Mentors, Investors & Industry",
+    "question": "Have you built relationships with mentors, investors, companies, or industry professionals?"
+   },
+   {
+    "category": "Mentors, Investors & Industry",
+    "question": "How would you identify the right mentor or industry connection for a startup?"
+   },
+   {
+    "category": "Mentors, Investors & Industry",
+    "question": "Tell us about a partnership or professional relationship you developed that created a useful outcome."
+   },
+   {
+    "category": "Problem Solving & Ambiguity",
+    "question": "How do you work when there is no clear roadmap?"
+   },
+   {
+    "category": "Problem Solving & Ambiguity",
+    "question": "Tell us about a project where things changed unexpectedly."
+   },
+   {
+    "category": "Problem Solving & Ambiguity",
+    "question": "What did you do when you did not have enough information to make a decision?"
+   },
+   {
+    "category": "Ownership & Execution",
+    "question": "Tell us about a time when you took complete ownership of an initiative."
+   },
+   {
+    "category": "Ownership & Execution",
+    "question": "How do you make sure an idea actually gets executed?"
+   },
+   {
+    "category": "Ownership & Execution",
+    "question": "Tell us about something you started or improved without being asked."
+   },
+   {
+    "category": "Entrepreneurship Culture",
+    "question": "How would you encourage students to become interested in entrepreneurship?"
+   },
+   {
+    "category": "Entrepreneurship Culture",
+    "question": "What activities would you introduce to create a strong startup culture on campus?"
+   },
+   {
+    "category": "Entrepreneurship Culture",
+    "question": "Tell us about an initiative or event you organised that successfully engaged people."
+   },
+   {
+    "category": "Impact & Results",
+    "question": "How would you measure whether an entrepreneurship programme is successful?"
+   },
+   {
+    "category": "Impact & Results",
+    "question": "What results would you track from idea to MVP to pilot?"
+   },
+   {
+    "category": "Impact & Results",
+    "question": "Tell us about a project where you can show a measurable result or impact."
+   }
+  ]
+ },
+ {
+  "name": "Executive – Social Impact Initiatives (Early Career)",
+  "description": "Early-career social impact executive",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result or impact?",
+   "What did you learn?"
+  ],
+  "questions": [
+   {
+    "category": "Experience & Background",
+    "question": "Do you have experience in social-sector, community, volunteering, or project work?"
+   },
+   {
+    "category": "Experience & Background",
+    "question": "Tell us about your previous experience."
+   },
+   {
+    "category": "Experience & Background",
+    "question": "What was your personal responsibility?"
+   },
+   {
+    "category": "Community Engagement",
+    "question": "Have you worked directly with a community or social group?"
+   },
+   {
+    "category": "Community Engagement",
+    "question": "How did you understand their needs?"
+   },
+   {
+    "category": "Community Engagement",
+    "question": "Tell us about a situation where you built trust with a community."
+   },
+   {
+    "category": "Project Execution",
+    "question": "Have you worked on a social-impact project from planning to execution?"
+   },
+   {
+    "category": "Project Execution",
+    "question": "How did you organise the project?"
+   },
+   {
+    "category": "Project Execution",
+    "question": "Tell us about a problem you faced during the project and how you solved it."
+   },
+   {
+    "category": "Student Engagement",
+    "question": "Have you worked with students or volunteers?"
+   },
+   {
+    "category": "Student Engagement",
+    "question": "How would you motivate students to participate in a social-impact initiative?"
+   },
+   {
+    "category": "Student Engagement",
+    "question": "Tell us about a time you successfully involved others in a project."
+   },
+   {
+    "category": "Ownership & Independence",
+    "question": "Tell us about a time you took ownership of a project or task."
+   },
+   {
+    "category": "Ownership & Independence",
+    "question": "How do you work when you have limited guidance?"
+   },
+   {
+    "category": "Ownership & Independence",
+    "question": "Tell us about a decision you made independently."
+   },
+   {
+    "category": "Fundraising",
+    "question": "Have you participated in fundraising or resource mobilisation?"
+   },
+   {
+    "category": "Fundraising",
+    "question": "How would you approach someone for support for a social-impact project?"
+   },
+   {
+    "category": "Fundraising",
+    "question": "Tell us about a fundraising activity you were involved in."
+   },
+   {
+    "category": "Events & Fieldwork",
+    "question": "Have you organised an event, campaign, or field activity?"
+   },
+   {
+    "category": "Events & Fieldwork",
+    "question": "How do you manage an activity from planning to completion?"
+   },
+   {
+    "category": "Events & Fieldwork",
+    "question": "Tell us about an event or field activity you handled."
+   },
+   {
+    "category": "Measuring Impact",
+    "question": "How do you know whether a social-impact project was successful?"
+   },
+   {
+    "category": "Measuring Impact",
+    "question": "What information or results would you track?"
+   },
+   {
+    "category": "Measuring Impact",
+    "question": "Tell us about a project where you can show a real impact or result."
+   },
+   {
+    "category": "Problem Solving",
+    "question": "What do you do when a project does not go as planned?"
+   },
+   {
+    "category": "Problem Solving",
+    "question": "Tell us about a difficult problem you faced in a community or social project."
+   },
+   {
+    "category": "Problem Solving",
+    "question": "What did you do and what was the result?"
+   },
+   {
+    "category": "Motivation & Vision",
+    "question": "Why do you want to work in social-impact initiatives?"
+   },
+   {
+    "category": "Motivation & Vision",
+    "question": "What does meaningful social impact mean to you?"
+   },
+   {
+    "category": "Motivation & Vision",
+    "question": "If you joined us, what kind of initiative would you like to develop?"
+   }
+  ]
+ },
+ {
+  "name": "Assistant Professor – School of Sports Science (KCLAS)",
+  "description": "Sports Science faculty, KCLAS",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What challenge did you face?",
+   "What did you do?",
+   "What was the result?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Experience",
+    "question": "Do you have a Master's, PhD, NET, or SET qualification in Sports Science or a related field?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "What is your main area of expertise in Sports Science?"
+   },
+   {
+    "category": "Qualification & Experience",
+    "question": "Tell us about your teaching, coaching, research, or industry experience."
+   },
+   {
+    "category": "Love for Sports & Student Motivation",
+    "question": "How would you make students develop a genuine love for sports?"
+   },
+   {
+    "category": "Love for Sports & Student Motivation",
+    "question": "How would you engage a student who has little or no interest in sports?"
+   },
+   {
+    "category": "Love for Sports & Student Motivation",
+    "question": "Tell us about a time when you motivated students to participate in sports or physical activity."
+   },
+   {
+    "category": "Teaching & Learning",
+    "question": "Have you taught Sports Science, Exercise Science, Coaching, or related subjects?"
+   },
+   {
+    "category": "Teaching & Learning",
+    "question": "How do you connect classroom theory with practical sports experience?"
+   },
+   {
+    "category": "Teaching & Learning",
+    "question": "Tell us about one teaching activity that created strong student engagement."
+   },
+   {
+    "category": "Practical Training",
+    "question": "Have you conducted practical training or exercise sessions for students or athletes?"
+   },
+   {
+    "category": "Practical Training",
+    "question": "How do you design training according to different student abilities?"
+   },
+   {
+    "category": "Practical Training",
+    "question": "Tell us about a difficult practical training situation you handled."
+   },
+   {
+    "category": "Student Development",
+    "question": "How can sports help students develop discipline and a healthy lifestyle?"
+   },
+   {
+    "category": "Student Development",
+    "question": "How would you encourage students to make physical activity part of their everyday life?"
+   },
+   {
+    "category": "Student Development",
+    "question": "Tell us about a student whose development you personally supported through sports or physical activity."
+   },
+   {
+    "category": "Research & Quantitative Methods",
+    "question": "Have you conducted research in Sports Science, Exercise Science, or a related area?"
+   },
+   {
+    "category": "Research & Quantitative Methods",
+    "question": "What research methods, measurements, or data-analysis techniques have you used?"
+   },
+   {
+    "category": "Research & Quantitative Methods",
+    "question": "Tell us about one research project you worked on and your personal contribution."
+   },
+   {
+    "category": "Student Projects & Supervision",
+    "question": "Have you supervised student research or academic projects?"
+   },
+   {
+    "category": "Student Projects & Supervision",
+    "question": "How do you help students turn a sports-related idea into a proper project or research study?"
+   },
+   {
+    "category": "Student Projects & Supervision",
+    "question": "Tell us about a student project you guided and its outcome."
+   },
+   {
+    "category": "Coaching, Strength & Conditioning",
+    "question": "Do you have experience in sports coaching, strength & conditioning, or exercise programming?"
+   },
+   {
+    "category": "Coaching, Strength & Conditioning",
+    "question": "How do you assess a student's or athlete's training needs?"
+   },
+   {
+    "category": "Coaching, Strength & Conditioning",
+    "question": "Tell us about a training programme you designed or implemented."
+   },
+   {
+    "category": "Collaboration & Department Activities",
+    "question": "Have you worked with faculty, coaches, departments, sports organisations, or industry?"
+   },
+   {
+    "category": "Collaboration & Department Activities",
+    "question": "How would you contribute to sports events, academic activities, and departmental initiatives?"
+   },
+   {
+    "category": "Collaboration & Department Activities",
+    "question": "Tell us about a collaboration or initiative you were personally involved in."
+   },
+   {
+    "category": "Innovation & Vision",
+    "question": "What new ideas would you introduce to increase student participation in sports?"
+   },
+   {
+    "category": "Innovation & Vision",
+    "question": "How would you build a strong sports culture within the institution?"
+   },
+   {
+    "category": "Innovation & Vision",
+    "question": "If you joined KCLAS, what would you want students to experience or achieve through Sports Science?"
+   }
+  ]
+ },
+ {
+  "name": "Senior Student Counsellor – Student Wellbeing",
+  "description": "Student counselling and wellbeing",
+  "followup_chain": [
+   "Can you give us a real example?",
+   "What was your personal role?",
+   "What was the student's situation?",
+   "What challenge did you face?",
+   "What did you do?",
+   "Why did you choose that approach?",
+   "What was the outcome?",
+   "What did you learn?"
+  ],
+  "questions": [
+   {
+    "category": "Qualification & Professional Background",
+    "question": "Do you have a Master's degree in Counselling Psychology, Clinical Psychology, Applied Psychology, or Medical & Psychiatric Social Work?"
+   },
+   {
+    "category": "Qualification & Professional Background",
+    "question": "Do you have any relevant professional certification or registration?"
+   },
+   {
+    "category": "Qualification & Professional Background",
+    "question": "Tell us about your overall counselling experience and your main areas of work."
+   },
+   {
+    "category": "Student Counselling Experience",
+    "question": "Have you worked as a counsellor in a college or university environment?"
+   },
+   {
+    "category": "Student Counselling Experience",
+    "question": "What types of student concerns have you supported?"
+   },
+   {
+    "category": "Student Counselling Experience",
+    "question": "Tell us about a student counselling case that you personally handled."
+   },
+   {
+    "category": "Mental Health & Wellbeing",
+    "question": "How do you support students experiencing stress, anxiety, academic pressure, or personal difficulties?"
+   },
+   {
+    "category": "Mental Health & Wellbeing",
+    "question": "How do you identify when a student's concern requires additional professional support?"
+   },
+   {
+    "category": "Mental Health & Wellbeing",
+    "question": "Tell us about a difficult wellbeing situation you handled and what you did."
+   },
+   {
+    "category": "Crisis Intervention",
+    "question": "Have you handled a student or client in a crisis situation?"
+   },
+   {
+    "category": "Crisis Intervention",
+    "question": "How do you respond when you believe a student may be at immediate risk?"
+   },
+   {
+    "category": "Crisis Intervention",
+    "question": "Tell us about a real crisis situation you handled and the actions you took."
+   },
+   {
+    "category": "Confidentiality & Ethics",
+    "question": "How do you maintain confidentiality when counselling students?"
+   },
+   {
+    "category": "Confidentiality & Ethics",
+    "question": "What would you do if a student shared information that required intervention from others?"
+   },
+   {
+    "category": "Confidentiality & Ethics",
+    "question": "Tell us about an ethical or confidentiality challenge you faced and how you handled it."
+   },
+   {
+    "category": "Counselling Approach",
+    "question": "How do you build trust with a student who is uncomfortable speaking about personal problems?"
+   },
+   {
+    "category": "Counselling Approach",
+    "question": "How do you adapt your counselling approach to different students?"
+   },
+   {
+    "category": "Counselling Approach",
+    "question": "Tell us about a student who was initially difficult to engage and how you built a counselling relationship."
+   },
+   {
+    "category": "Student Wellbeing Programmes",
+    "question": "Have you conducted mental-health awareness, wellbeing, or student-development programmes?"
+   },
+   {
+    "category": "Student Wellbeing Programmes",
+    "question": "How would you encourage students to participate in wellbeing programmes?"
+   },
+   {
+    "category": "Student Wellbeing Programmes",
+    "question": "Tell us about a wellbeing initiative you organised or contributed to and its outcome."
+   },
+   {
+    "category": "Collaboration & Referral",
+    "question": "How do you work with faculty, mentors, parents, or institutional teams while protecting student confidentiality?"
+   },
+   {
+    "category": "Collaboration & Referral",
+    "question": "How do you decide when a student should be referred to another professional or service?"
+   },
+   {
+    "category": "Collaboration & Referral",
+    "question": "Tell us about a situation where you collaborated with others to support a student."
+   },
+   {
+    "category": "Documentation & Professional Practice",
+    "question": "How do you maintain counselling records and case documentation?"
+   },
+   {
+    "category": "Documentation & Professional Practice",
+    "question": "How do you ensure that your counselling practice follows professional and ethical standards?"
+   },
+   {
+    "category": "Documentation & Professional Practice",
+    "question": "Tell us about a situation where proper documentation or professional procedure was important."
+   },
+   {
+    "category": "Experience, Reflection & Impact",
+    "question": "How do you know whether your counselling support is helping a student?"
+   },
+   {
+    "category": "Experience, Reflection & Impact",
+    "question": "Tell us about a student-support experience that had a meaningful outcome."
+   },
+   {
+    "category": "Experience, Reflection & Impact",
+    "question": "Looking back at your counselling career, what is one difficult situation that taught you an important professional lesson?"
+   }
+  ]
+ }
+]

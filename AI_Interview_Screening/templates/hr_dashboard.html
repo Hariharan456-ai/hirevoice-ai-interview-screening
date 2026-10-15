@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block content %}
+<div class="top"><div><h1>Screening Dashboard</h1><p class="muted">Live ranking per job role — candidates are only compared with others applying for the same role.</p></div>
+<div class="row"><select class="rolesel" onchange="location='?role='+this.value">{% for r in roles %}<option value="{{ r.id }}" {{ 'selected' if r.id==rid }}>{{ r.name }} ({{ r.ncand }})</option>{% endfor %}</select><form method="post" action="{{ url_for('main.recalc') }}"><button class="btn ghost">↻ Recalculate</button></form>
+<a class="btn" href="{{ url_for('main.export_excel') }}">⬇ Export Excel</a></div></div>
+{% if qcount==0 %}<div class="flash warn">No questions yet. <a href="{{ url_for('main.questions') }}">Create questions</a> first.</div>{% endif %}
+<div class="cards">
+<div class="card stat"><span>Total candidates</span><b id="s-total">–</b></div>
+<div class="card stat"><span>Live now</span><b id="s-live">–</b></div>
+<div class="card stat"><span>Interviews completed</span><b id="s-completed">–</b></div>
+<div class="card stat"><span>Average score</span><b id="s-avg">–</b></div>
+<div class="card stat"><span>Highest score</span><b id="s-top">–</b></div>
+<div class="card stat red"><span>AI-suspected</span><b id="s-flag">–</b></div></div>
+<div class="grid2"><div class="card"><h3>Ranking <span class="live" id="upd">● LIVE</span></h3>
+<div class="tw"><table id="rank"><thead><tr><th>Rank</th><th>Name</th><th>Degree</th><th>Status</th><th>Answered</th><th>Score</th><th>%</th><th>Avg reply time</th><th>PDF</th></tr></thead><tbody></tbody></table></div>
+<p class="muted small">🔴 Red name = answers look AI-generated / read from a chatbot. The rank is still shown — please verify manually.</p></div>
+<div class="card"><h3>Score distribution</h3><div id="dist"></div></div></div>
+{% endblock %}{% block scripts %}<script>startLiveDashboard({{ qcount }}, {{ rid or 0 }});</script>{% endblock %}

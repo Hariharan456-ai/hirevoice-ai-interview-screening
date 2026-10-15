@@ -1,0 +1,34 @@
+{% extends "base.html" %}{% block content %}
+<div class="top"><div><h1 class="{{ 'redname' if e and e.ai_suspected }}">{{ c.name }} {% if e and e.ai_suspected %}<span class="pill red">⚠ AI-assisted answers suspected</span>{% endif %}</h1>
+<p class="muted"><b>{{ role.name if role else '' }}</b><br>{{ c.phone }} · {{ c.email }} · {{ c.college }} · {{ c.degree }} {{ c.specialization }} {{ c.graduation_year }}</p></div>
+<div class="row">{% if e and e.drive_link %}<a class="btn ghost" href="{{ e.drive_link }}" target="_blank">☁ Drive link</a>{% endif %}{% if c.resume_path %}<a class="btn ghost" href="{{ url_for('main.resume', cid=c.id) }}" target="_blank">📄 Resume</a>{% endif %}
+{% if e %}<a class="btn" href="{{ url_for('main.report', cid=c.id) }}" target="_blank">📑 Q&amp;A PDF</a>{% endif %}
+{% if status in ('in_progress','incomplete') %}<form method="post" action="{{ url_for('main.force_finish', cid=c.id) }}"><button class="btn">⏹ Finish &amp; score now</button></form>{% endif %}
+<form method="post" action="{{ url_for('main.reset_interview', cid=c.id) }}" onsubmit="return confirm('Erase answers and let this candidate re-take the interview?')"><button class="btn ghost">↺ Reset</button></form></div></div>
+{% if e %}<div class="cards"><div class="card stat"><span>Rank</span><b>#{{ e.rank }}</b></div><div class="card stat"><span>Total</span><b>{{ e.total_score|fmt }}/{{ e.max_score|int }}</b></div>
+<div class="card stat"><span>Percentage</span><b>{{ e.percentage|fmt }}%</b></div><div class="card stat"><span>Avg reply time</span><b>{{ e.avg_response_time|fmt }}s</b></div></div>{% endif %}
+{% if e %}<div class="card"><h3>AI-assistance check (HR review)</h3><p class="muted small">The detector only gives a hint. Listen to the audio and decide. Your decision overrides the automatic flag; the rank stays visible either way. Current: <b>{{ c.ai_review or 'automatic' }}</b></p>
+<form method="post" action="{{ url_for('main.ai_review', cid=c.id) }}" class="row"><button class="btn sm" name="value" value="cleared">✔ Verified human (remove red)</button><button class="btn sm danger" name="value" value="confirmed">⚠ Confirm AI-assisted</button><button class="btn sm ghost" name="value" value="">↺ Use automatic</button></form></div>{% endif %}
+<p class="muted">Status: <span class="pill {{ status }}">{{ {'pending':'Not started','in_progress':'● Live now','incomplete':'Stopped early','scoring':'Scoring…','completed':'Completed'}[status] }}</span></p>
+{% if turns %}<div class="card"><h3>🗣 Full conversation</h3>
+<div class="row" style="margin-bottom:8px">{% if has_rec %}<div style="flex:3"><small class="muted">Whole interview recording (AI + candidate)</small><audio controls preload="none" src="{{ url_for('main.full_recording', cid=c.id) }}"></audio></div>{% endif %}
+<a class="btn sm ghost" href="{{ url_for('main.transcript_download', cid=c.id) }}">⬇ Transcript (.txt)</a></div>
+<div class="convo">{% for t in turns %}{% if t.speaker=='AI' %}<div class="bub ai"><small>AI {{ '(question)' if t.kind=='question' else '(follow-up)' if t.kind=='followup' else '' }}</small>{{ t.text }}</div>
+{% else %}<div class="bub cand {{ 'silent' if (t.text or '').startswith('(no') }}"><small>{{ c.name }}{% if t.response_time is not none %} · replied after {{ t.response_time|fmt }}s{% endif %}</small>{{ t.text }}{% if t.audio_file %}<br><audio controls preload="none" src="{{ url_for('main.turn_audio', tid=t.id) }}"></audio>{% endif %}</div>{% endif %}{% endfor %}</div></div>{% endif %}
+<p class="muted small">Interview link: <code>{{ link }}</code></p>
+{% for a in ans %}<div class="card ans {{ 'flag' if a.ai_suspected }}"><h3>Q{{ loop.index }}. {{ a.question }}</h3>
+{% if not a.id %}<p class="muted">Not answered yet.</p>
+<form method="post" action="{{ url_for('main.manual_audio', cid=c.id, qid=a.qid) }}" enctype="multipart/form-data" class="row"><input type="file" name="audio" accept="audio/*" required><button class="btn sm ghost">Upload recorded answer instead</button></form>
+{% else %}{% if a.audio_file and a.audio_file!='-' %}<audio controls preload="none" src="{{ url_for('main.audio', aid=a.id) }}"></audio>{% endif %}
+{% if a.status=='processing' %}<p class="pill in_progress">⏳ transcribing &amp; scoring…</p><meta http-equiv="refresh" content="6">
+{% elif a.status=='error' %}<p class="flash err">{{ a.error }}</p><form method="post" action="{{ url_for('main.reeval', aid=a.id) }}"><button class="btn sm">Re-evaluate</button></form>{% endif %}
+<blockquote style="white-space:pre-wrap">{{ a.transcript or '(no transcript)' }}</blockquote>
+{% for fu in a.fus %}<div class="fu">🎙 Follow-up: <b>{{ fu.question }}</b><br><audio controls preload="none" src="{{ url_for('main.followup_audio', aid=a.id, i=loop.index0) }}"></audio><br><small>{{ fu.reply }}</small></div>{% endfor %}
+{% if a.status=='done' %}<div class="scorebar"><div><small>Response time</small><b>{{ a.response_time|fmt }}s</b></div><div><small>Raw</small><b>{{ a.raw_score|fmt }}</b></div>
+<div><small>Time penalty</small><b class="{{ 'neg' if a.penalty_pct }}">−{{ a.penalty_pct|fmt(0) }}%</b></div><div><small>Final</small><b>{{ a.score|fmt }}</b></div>
+<div><small>AI-likelihood</small><b class="{{ 'neg' if a.ai_suspected }}">{{ a.ai_likelihood|fmt(0) }}%</b></div></div>
+<div class="rub">{% for k,v in rubric.items() %}<div><small>{{ labels[k] }}</small><div class="bar"><i style="width:{{ (a.ev.get(k,0)/v*100)|int }}%"></i></div><b>{{ a.ev.get(k,0) }}/{{ v }}</b></div>{% endfor %}</div>
+<p><b>Strengths:</b> {{ a.ev.get('strengths',[])|join('; ') }}</p><p><b>Weaknesses:</b> {{ a.ev.get('weaknesses',[])|join('; ') }}</p>
+<p><b>Evidence:</b> {{ a.ev.get('evidence',[])|join('; ') }}</p><p><b>AI summary:</b> {{ a.ev.get('summary','') }}</p>
+{% if a.ev.get('ai_heuristic_reasons') %}<p class="muted small">AI-style signals: {{ a.ev.ai_heuristic_reasons|join('; ') }}</p>{% endif %}{% endif %}{% endif %}</div>{% endfor %}
+{% endblock %}

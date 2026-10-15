@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block content %}
+<div class="top"><div><h1>Interview Questions by Role</h1><p class="muted">Each job role has its own question set (loaded from your PDFs). Questions are spoken by the AI voice, in order. English only.</p></div>
+<div class="row"><form method="post" action="{{ url_for('main.reload_banks') }}"><button class="btn ghost">↻ Load / refresh role question banks</button></form>
+<form method="post" action="{{ url_for('main.generate_keys') }}"><input type="hidden" name="role_id" value="{{ rid }}"><button class="btn ghost">🧠 Generate grading guides (local AI)</button></form></div></div>
+<div class="tabs">{% for r in roles %}<a class="{{ 'on' if r.id==rid }}" href="?role={{ r.id }}">{{ r.name }} · {{ r.nq }}</a>{% endfor %}</div>
+<div class="grid2"><div class="card"><h3>Add question to this role</h3><form method="post"><input type="hidden" name="role_id" value="{{ rid }}"><label>Question</label><textarea name="question" rows="3" required></textarea>
+<div class="row"><div><label>Category</label><input name="category" value="General"></div><div><label>Max score</label><input name="maximum_score" type="number" value="100"></div></div><button class="btn">Add question</button></form>
+<h3 style="margin-top:18px">AI follow-up chain for this role</h3><p class="muted small">The AI writes follow-ups from what the candidate says (e.g. picks one of the tools they mention). If the local AI is slow it uses these role questions instead:</p>
+{% for f in chain %}<div class="fu">{{ loop.index }}. {{ f }}</div>{% endfor %}
+<p class="muted small">Graded on: {% for k,v in rubric.items() %}{{ labels[k] }} ({{ v }}){{ ', ' if not loop.last }}{% endfor %}.</p></div>
+<div class="card">{% set nsel = qs|selectattr('active')|list|length %}
+<h3>Questions ({{ qs|length }}) <span class="tag">{{ nsel }} asked ≈ {{ [ (nsel*2.5)|round|int, max_min ]|min }} min</span></h3>
+<p class="muted small">Tick the questions the AI should ask. The interview stops at {{ max_min }} minutes whatever happens.</p>
+<div class="row" style="margin-bottom:8px"><form method="post" action="{{ url_for('main.auto_select') }}"><input type="hidden" name="role_id" value="{{ rid }}"><button class="btn sm ghost">1 per section (recommended)</button></form>
+<form method="post" action="{{ url_for('main.select_all') }}"><input type="hidden" name="role_id" value="{{ rid }}"><button class="btn sm ghost">Select all</button></form></div>{% for q in qs %}<div class="qrow {{ '' if q.active else 'off' }}"><form method="post" action="{{ url_for('main.toggle_question', qid=q.id) }}"><button class="btn sm {{ '' if q.active else 'ghost' }}" title="Asked in interview?">{{ '✔' if q.active else '○' }}</button></form><span class="qn">{{ loop.index }}</span><div><b>{{ q.question }}</b>{% if q.needs_followup %}<span class="tag">follow-up</span>{% endif %}{% if q.answer_key %}<span class="tag">guide ✔</span>{% endif %}<br><small class="muted">{{ q.category }} · max {{ q.maximum_score|int }}</small></div>
+<form method="post" action="{{ url_for('main.delete_question', qid=q.id) }}" onsubmit="return confirm('Delete this question and its answers?')"><button class="btn sm danger">🗑</button></form></div>{% else %}<p class="muted">No questions yet.</p>{% endfor %}</div></div>
+{% endblock %}

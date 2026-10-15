@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voice Interview</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="cand"><audio id="player" playsinline preload="auto"></audio><div class="wrap"><div class="brand c"><span class="logo">🎙</span><b>HireVoice AI</b></div>
+<div class="card big" id="stage">
+{% if done %}<h1>✅ Interview already completed</h1><p class="muted">Thank you, {{ c.name }}. HR will contact you.</p>
+{% elif not nq %}<h1>No questions configured</h1><p class="muted">Please contact HR.</p>
+{% else %}
+<div id="intro"><h1>Hello {{ c.name }} 👋</h1><p class="muted">Interview for: <b>{{ role }}</b></p>
+<p>This is a <b>live voice conversation</b> with an AI interviewer (about {{ [ (nq*2.5)|round|int, max_min ]|min }} minutes, never more than {{ max_min }}). It will greet you, ask questions and follow up on what you say — just like a real interview. Please answer <b>in English</b>.</p>
+<ul class="rules"><li>Use a quiet place, headphones help, and allow the <b>microphone</b>.</li><li>Start answering soon after the question — <b>your response time is measured</b>.</li>
+<li>When you stop speaking for a few seconds, the AI moves on automatically.</li><li>Answers must be your own; the whole conversation is recorded and AI-assisted answers are flagged for HR.</li></ul>
+<div class="flash warn" id="inapp" hidden>⚠ You opened this inside another app. Please open the link in <b>Chrome</b> (Android) or <b>Safari</b> (iPhone): tap ⋮ / share → "Open in browser".</div>
+<div class="flash warn">📵 Do <b>not</b> stay on a phone call or WhatsApp call while doing this interview — a call blocks the microphone and the sound. Turn the media volume up.</div>
+<p><button class="btn ghost" id="testBtn" type="button">🔊 Test sound</button> <span id="testMsg" class="muted small">Press it — you should hear a beep and a voice.</span></p>
+<button class="btn lg" id="startBtn">🎤 Allow microphone &amp; start</button><p class="err" id="micErr"></p></div>
+<div id="live" hidden><div class="prog"><span id="qi"></span><div class="bar"><i id="pb"></i></div><span class="timer" id="tm"></span></div>
+<div class="qbox" id="qtext"></div><div class="orb" id="orb"><span id="orbtxt">…</span></div>
+<p id="state" class="state"></p><button class="btn" id="tapBtn" hidden>🔊 Tap to hear the question</button><div class="meter"><i id="lvl"></i></div><button class="btn ghost" id="doneBtn" hidden>✔ I'm done answering</button></div>
+<div id="end" hidden><h1>🎉 Interview complete</h1><p>Thank you! Your conversation has been saved and will be evaluated. HR will contact you if you are shortlisted.</p></div>
+{% endif %}</div></div>
+<script>
+const TOKEN="{{ token }}", SILENCE={{ 2.5 }};
+const $=id=>document.getElementById(id);
+let stream, ctx, analyser, buf, recDest, mixRec, recChain=Promise.resolve(), recSeq=0, curProg=null;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function level(){analyser.getFloatTimeDomainData(buf);let s=0;for(const v of buf)s+=v*v;return Math.sqrt(s/buf.length);}
+function setOrb(cls,txt){$('orb').className='orb '+cls;$('orbtxt').textContent=txt;}
+function mime(){return ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t=>MediaRecorder.isTypeSupported(t))||'';}
+
+/* ---- one continuous recording of the WHOLE conversation (AI voice + candidate voice), uploaded in chunks ---- */
+function startFullRecording(){
+  recDest=ctx.createMediaStreamDestination();ctx.createMediaStreamSource(stream).connect(recDest);
+  if(!MOBILE){const src=ctx.createMediaElementSource($('player'));src.connect(ctx.destination);src.connect(recDest);}
+  const mt=mime();mixRec=new MediaRecorder(recDest.stream,mt?{mimeType:mt}:{});
+  mixRec.ondataavailable=e=>{if(!e.data.size)return;const fd=new FormData();fd.append('chunk',e.data,'c.webm');
+    recChain=recChain.then(()=>fetch(`/interview/${TOKEN}/rec`,{method:'POST',body:fd}).catch(()=>{}));};
+  mixRec.start(5000);
+}
+async function stopFullRecording(){try{mixRec.stop();}catch(e){}await sleep(400);await recChain;}
+
+const MOBILE=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+function beepUrl(){const sr=8000,n=sr*0.5,b=new ArrayBuffer(44+n*2),v=new DataView(b);
+  const w=(o,t)=>[...t].forEach((c,i)=>v.setUint8(o+i,c.charCodeAt(0)));
+  w(0,'RIFF');v.setUint32(4,36+n*2,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+  v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,n*2,true);
+  for(let i=0;i<n;i++)v.setInt16(44+i*2,Math.sin(2*Math.PI*660*i/sr)*9000*(1-i/n),true);
+  return URL.createObjectURL(new Blob([b],{type:'audio/wav'}));}
+function unlockAudio(){                      // MUST run directly inside a tap/click (phones block sound otherwise)
+  const p=$('player');p.src=SILENT;p.play().catch(()=>{});
+  if('speechSynthesis' in window){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u);}catch(e){}}
+  if(ctx&&ctx.state!=='running')ctx.resume();
+}
+if(/WhatsApp|FBAN|FBAV|Instagram|Line\//i.test(navigator.userAgent)&&$('inapp'))$('inapp').hidden=false;
+$('testBtn')&&($('testBtn').onclick=async()=>{unlockAudio();const p=$('player');p.src=beepUrl();try{await p.play();}catch(e){}
+  await sleep(700);await browserSpeak('Hello, can you hear me? If yes, press start.');$('testMsg').textContent='Heard it? Great — press Start. No sound? Raise the media volume, leave any call, and open the link in Chrome/Safari.';});
+
+function browserSpeak(text){return new Promise(res=>{if(!('speechSynthesis' in window)){res(0);return;}
+  const t0=performance.now();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.97;
+  u.onend=()=>res(performance.now()-t0);u.onerror=()=>res(0);speechSynthesis.speak(u);});}
+function playUrl(url){const p=$('player');p.src=url;return new Promise((res,rej)=>{p.onended=res;p.onerror=rej;p.play().catch(rej);});}
+function tapToHear(fn){return new Promise(res=>{const b=$('tapBtn');b.hidden=false;setOrb('wait','Tap');$('state').textContent='Your phone blocked the sound — tap the button.';
+  b.onclick=async()=>{b.hidden=true;unlockAudio();try{await fn();}catch(e){}res();};});}
+
+async function speak(m){
+  setOrb('talk','AI speaking');$('state').textContent='Listen…';
+  if(m.kind!=='ack'&&m.text){$('qtext').textContent=m.text;}
+  if(ctx&&ctx.state!=='running'){try{await ctx.resume();}catch(e){}}
+  let url=null;
+  try{const r=await fetch(m.audio);if(r.status===200)url=URL.createObjectURL(await r.blob());}catch(e){}
+  if(url){
+    try{await playUrl(url);return;}catch(e){}
+    if(m.kind==='ack')return;
+    await tapToHear(()=>playUrl(url));return;
+  }
+  const ms=await browserSpeak(m.text);                         // no Piper voice -> browser voice
+  if(m.kind!=='ack'&&m.text.length>40&&ms<500)await tapToHear(()=>browserSpeak(m.text));
+}
+
+async function listen(cfg){
+  const chunks=[];const mt=mime();const rec=new MediaRecorder(stream,mt?{mimeType:mt}:{});rec.ondataavailable=e=>e.data.size&&chunks.push(e.data);
+  const t0=performance.now();rec.start(250);setOrb('rec','Your turn');$('state').textContent='Answer now…';$('doneBtn').hidden=false;
+  let noise=0,n=0;const cal=performance.now();while(performance.now()-cal<400){noise+=level();n++;await sleep(20);}
+  const thr=Math.max(0.015,(noise/n)*3);let started=null,lastVoice=null,manual=false,vf=0;$('doneBtn').onclick=()=>manual=true;
+  while(true){
+    const now=performance.now(),l=level();$('lvl').style.width=Math.min(100,l*600)+'%';
+    if(l>thr){vf++;lastVoice=now;if(!started&&vf>=4){started=now-100;$('state').textContent='Listening…';}}else vf=Math.max(0,vf-1);
+    if(!started){const w=(now-t0)/1000;$('state').textContent=`Start speaking… ${w.toFixed(0)}s`;if(w>cfg.noSpeech)break;}
+    else if((now-lastVoice)/1000>SILENCE||(now-started)/1000>cfg.maxAns||manual)break;
+    await sleep(40);
+  }
+  $('doneBtn').hidden=true;await new Promise(r=>{rec.onstop=r;rec.stop();});
+  return {blob:new Blob(chunks,{type:rec.mimeType||'audio/webm'}),rt:started?(started-t0)/1000:cfg.noSpeech,dur:started?(performance.now()-started)/1000:0,spoke:!!started};
+}
+
+async function post(url,fd){for(let i=0;i<3;i++){try{const x=await fetch(url,{method:'POST',body:fd});if(x.ok)return await x.json();}catch(e){}await sleep(800);}return null;}
+async function poll(job){for(let i=0;i<400;i++){try{const x=await fetch(`/interview/${TOKEN}/next?job=${job}`);const j=await x.json();if(j.ready)return j;}catch(e){}await sleep(600);}return {ready:true,error:'timeout'};}
+
+function showProgress(m){if(!m.progress)return;$('qi').textContent=`Question ${m.progress.q} of ${m.progress.total}`;
+  $('pb').style.width=((m.progress.q-1)/m.progress.total*100)+'%';$('tm').textContent=`${m.elapsed_min} / ${m.max_min} min`;}
+
+async function run(){
+  ctx=new (window.AudioContext||window.webkitAudioContext)();unlockAudio();   // inside the tap: unlocks sound on phones
+  try{stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});}
+  catch(e){$('micErr').textContent='Microphone blocked or unavailable. On phones the link must be HTTPS (ask HR). '+e.message;return;}
+  analyser=ctx.createAnalyser();analyser.fftSize=1024;buf=new Float32Array(analyser.fftSize);
+  ctx.createMediaStreamSource(stream).connect(analyser);startFullRecording();
+  const s=await post(`/interview/${TOKEN}/start`,new FormData());
+  if(!s||!s.ok){$('micErr').textContent=(s&&s.error)||'Could not start. Please contact HR.';return;}
+  $('intro').hidden=true;$('live').hidden=false;
+  let m=s.say;
+  while(true){
+    showProgress(m);await speak(m);
+    if(m.done)break;
+    const r=await listen(m.listen||{noSpeech:45,maxAns:120});
+    const fd=new FormData();if(r.spoke)fd.append('audio',r.blob,'a.webm');
+    fd.append('response_time',r.rt.toFixed(2));fd.append('duration',r.dur.toFixed(2));fd.append('spoke',r.spoke?'1':'0');
+    setOrb('wait','Thinking…');$('state').textContent='';
+    const sub=await post(`/interview/${TOKEN}/reply`,fd);
+    if(!sub||!sub.ok){$('state').textContent='Connection problem - retrying…';await sleep(1500);continue;}
+    const pending=poll(sub.job);                       // server transcribes + writes the next line while the AI says "Okay, I see."
+    if(sub.ack){sub.ack.kind='ack';await speak(sub.ack);}
+    setOrb('wait','Thinking…');$('state').textContent='';
+    const nx=await pending;
+    if(nx.error){$('state').textContent='Something went wrong. Please tell HR.';return;}
+    m=nx.say;
+  }
+  await stopFullRecording();stream.getTracks().forEach(t=>t.stop());
+  $('live').hidden=true;$('end').hidden=false;
+}
+$('startBtn')&&($('startBtn').onclick=run);
+</script></body></html>

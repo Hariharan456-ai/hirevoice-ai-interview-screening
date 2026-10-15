@@ -1,0 +1,38 @@
+{% extends "base.html" %}{% block content %}
+<div class="top"><div><h1>Candidates &amp; Invites</h1><p class="muted">Upload resumes → name &amp; phone are read automatically → send each candidate their interview link.</p></div></div>
+<div class="grid3">
+<div class="card"><h3>📄 Upload resumes (PDF)</h3><form method="post" action="{{ url_for('main.upload_resumes') }}" enctype="multipart/form-data">
+<label>Job role</label><select name="role_id" required>{% for r in roles %}<option value="{{ r.id }}" {{ 'selected' if r.id==sel }}>{{ r.name }}</option>{% endfor %}</select>
+<input type="file" name="resumes" accept=".pdf" multiple required><button class="btn">Extract &amp; add</button></form><p class="muted small">Select many PDFs at once. Text PDFs only (not scanned photos).</p></div>
+<div class="card"><h3>☎ HR number &amp; link settings</h3><form method="post" action="{{ url_for('main.settings') }}">
+<label>HR phone number (shown to candidates)</label><input name="hr_phone" value="{{ hr_phone }}" placeholder="+91 98xxxxxx">
+<label>Public link base (optional, e.g. https://xxxx.trycloudflare.com)</label><input name="public_url" value="{{ public_url }}" placeholder="leave empty for this PC's address"><button class="btn">Save</button></form></div>
+<div class="card"><h3>📞 Real phone calls (SIP)</h3><p class="muted small">Status: <b>{{ phone_status }}</b>. Get the SIP details from the company that provides your calling number.</p>
+<form method="post" action="{{ url_for('main.phone_settings') }}" class="mini">
+<input name="caller_number" value="{{ sip.caller }}" placeholder="Calling number (shown to HR)"><input name="sip_server" value="{{ sip.server }}" placeholder="SIP server / domain">
+<input name="sip_port" value="{{ sip.port }}" placeholder="Port (5060)"><input name="sip_user" value="{{ sip.user }}" placeholder="SIP username"><input name="sip_password" type="password" placeholder="SIP password (leave empty to keep)">
+<select name="dial_format"><option value="plus91" {{ 'selected' if sip.dial_format=='plus91' }}>Dial as +91XXXXXXXXXX</option><option value="zero" {{ 'selected' if sip.dial_format=='zero' }}>Dial as 0XXXXXXXXXX</option><option value="91" {{ 'selected' if sip.dial_format=='91' }}>Dial as 91XXXXXXXXXX</option><option value="raw" {{ 'selected' if sip.dial_format=='raw' }}>Dial 10 digits only</option></select>
+<input name="sip_my_ip" value="{{ sip.my_ip }}" placeholder="This PC's IP (optional)"><button class="btn">Save phone settings</button></form>
+<form method="post" action="{{ url_for('main.call_all') }}"><input type="hidden" name="role_id" value="{{ sel }}"><button class="btn sm">📞 Call all "Not started" candidates of the selected role</button></form></div>
+<div class="card"><h3>☁ Google Drive links for PDFs</h3><p class="muted small">Status: <b>{{ drive_status }}</b></p>
+<form method="post" action="{{ url_for('main.drive_connect') }}"><button class="btn ghost">Connect Google Drive</button></form>
+{% if drive_ready %}<form method="post" action="{{ url_for('main.drive_sync') }}"><button class="btn sm">Upload all PDFs now</button></form>{% endif %}
+<p class="muted small">One-time setup in README. Links are private to your Google account.</p></div>
+<div class="card"><h3>➕ Add manually / CSV</h3><form method="post" action="{{ url_for('main.add_candidate') }}" class="mini">
+<label>Job role</label><select name="role_id" required>{% for r in roles %}<option value="{{ r.id }}" {{ 'selected' if r.id==sel }}>{{ r.name }}</option>{% endfor %}</select>
+<input name="name" placeholder="Name" required><input name="phone" placeholder="Phone"><input name="email" placeholder="Email">
+<input name="college" placeholder="College"><input name="degree" placeholder="Degree"><input name="specialization" placeholder="Specialization"><input name="graduation_year" placeholder="Year"><button class="btn">Add</button></form>
+<form method="post" action="{{ url_for('main.import_csv') }}" enctype="multipart/form-data" class="row"><input type="hidden" name="role_id" value="{{ sel }}"><input type="file" name="csv" accept=".csv" required><button class="btn ghost">Import CSV</button></form></div></div>
+<div class="card"><h3>Candidates ({{ invites|length }})</h3><div class="tw"><table><thead><tr><th>Name</th><th>Job role</th><th>Phone</th><th>Education</th><th>Interview</th><th>Send invite / call</th><th></th></tr></thead><tbody>
+{% for i in invites %}{% set r=i.row %}<tr class="{{ 'flag' if r.ai_flag }}"><td><a href="{{ url_for('main.candidate_details', cid=r.id) }}"><b>{{ r.name }}</b></a><br><small class="muted">{{ r.email }}</small></td>
+<td><form method="post" action="{{ url_for('main.set_role', cid=r.id) }}"><select name="role_id" class="rolesel" onchange="this.form.submit()">{% for ro in roles %}<option value="{{ ro.id }}" {{ 'selected' if ro.id==r.role_id }}>{{ ro.name[:34] }}</option>{% endfor %}</select></form></td><td>{{ r.phone or '⚠ missing' }}</td><td>{{ r.degree }} {{ r.specialization }}<br><small class="muted">{{ r.college }}</small></td>
+<td><span class="pill {{ i.status }}">{{ {'pending':'Not started','in_progress':'● Live now','incomplete':'Stopped early','scoring':'Scoring…','completed':'Completed'}[i.status] }}</span></td>
+<td class="acts"><form method="post" action="{{ url_for('main.call_candidate', cid=r.id) }}"><button class="btn sm">🤖📞 AI call</button></form><span class="callst muted small" data-id="{{ r.id }}"></span><a class="btn sm ghost" href="{{ i.tel }}">Dial</a><a class="btn sm" target="_blank" href="{{ i.wa }}">WhatsApp</a><a class="btn sm" href="{{ i.sms }}">SMS</a>
+<button class="btn sm ghost" onclick="copyText('{{ i.link }}',this)">Copy link</button><a class="btn sm ghost" target="_blank" href="{{ i.link }}">Open</a></td>
+<td><form method="post" action="{{ url_for('main.delete_candidate', cid=r.id) }}" onsubmit="return confirm('Delete {{ r.name }} and ALL their data (resume, audio, transcripts, report)? This cannot be undone.')"><button class="btn sm danger">🗑</button></form></td></tr>
+{% else %}<tr><td colspan="7" class="muted">No candidates yet.</td></tr>{% endfor %}</tbody></table></div></div>
+<script>
+const CL={queued:'⏳ queued',dialing:'📞 dialing…',ringing:'🔔 ringing…',in_call:'🟢 in call',completed:'✔ call finished',no_answer:'✖ no answer',ended_early:'⚠ hung up',failed:'✖ failed'};
+async function callTick(){try{const d=await (await fetch('/api/calls',{cache:'no-store'})).json();
+ document.querySelectorAll('.callst').forEach(e=>{const c=d[e.dataset.id];e.textContent=c?(CL[c.state]||c.state)+(c.state==='failed'&&c.detail?': '+c.detail:''):'';});}catch(e){}}
+callTick();setInterval(callTick,3000);</script>{% endblock %}

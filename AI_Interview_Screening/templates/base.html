@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}HireVoice AI{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><aside class="side"><div class="brand"><span class="logo">🎙</span><div><b>HireVoice AI</b><small>Interview Screening</small></div></div>
+<nav>
+<a href="{{ url_for('main.dashboard') }}" class="{{ 'on' if request.endpoint=='main.dashboard' }}">📊 Dashboard</a>
+<a href="{{ url_for('main.candidates') }}" class="{{ 'on' if request.endpoint in ('main.candidates','main.candidate_details') }}">👥 Candidates &amp; Invites</a>
+<a href="{{ url_for('main.questions') }}" class="{{ 'on' if request.endpoint=='main.questions' }}">❓ Questions</a>
+<a href="{{ url_for('main.export_excel') }}">⬇ Export Excel</a>
+<a href="{{ url_for('main.account') }}" class="{{ 'on' if request.endpoint=='main.account' }}">🔑 Account</a>
+<a href="{{ url_for('main.logout') }}">⎋ Log out</a></nav>
+<div class="sysbox" id="sys">Checking AI models…</div></aside>
+<main><div class="flashes">{% for cat,msg in get_flashed_messages(with_categories=true) %}<div class="flash {{cat}}">{{ msg }}</div>{% endfor %}</div>
+{% block content %}{% endblock %}</main><script src="{{ url_for('static', filename='script.js') }}"></script>{% block scripts %}{% endblock %}</body></html>

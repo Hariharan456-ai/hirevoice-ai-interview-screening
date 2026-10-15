@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HR Login - HireVoice AI</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="cand"><div class="wrap" style="max-width:420px;padding-top:9vh"><div class="brand c"><span class="logo">🎙</span><b>HireVoice AI</b></div>
+<div class="card big" style="text-align:left"><h1 style="text-align:center">HR Login</h1><p class="muted" style="text-align:center">Only authorised HR staff can open the dashboard.</p>
+{% if err %}<div class="flash err">{{ err }}</div>{% endif %}
+<form method="post"><input type="hidden" name="next" value="{{ nxt }}"><label>Email</label><input name="email" type="email" required autofocus placeholder="hr@hirevoice.com">
+<label>Password</label><input name="password" type="password" required placeholder="Password"><button class="btn lg" style="width:100%">Sign in</button></form>
+<p class="muted small" style="text-align:center;margin-top:14px">Default login is in the README. Change it after the first sign-in (Account page).</p></div></div></body></html>

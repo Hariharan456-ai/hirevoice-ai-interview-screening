@@ -1,0 +1,8 @@
+[
+ {"question":"Tell me about yourself and your technical background.",
+  "answer":"I am a final year computer science student. I built a student attendance app in Python and Flask with a SQLite database, and I have done an internship where I fixed bugs in a Django project.",
+  "scores":{"technical_knowledge":20,"communication":15,"problem_solving":12,"role_relevance":16,"completeness":7,"total_score":70}},
+ {"question":"Tell me about yourself and your technical background.",
+  "answer":"I am good and I like computers. I want the job.",
+  "scores":{"technical_knowledge":3,"communication":6,"problem_solving":2,"role_relevance":5,"completeness":2,"total_score":18}}
+]

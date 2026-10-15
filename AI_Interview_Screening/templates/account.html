@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<div class="top"><div><h1>Account</h1><p class="muted">Change the HR login email and password.</p></div></div>
+<div class="card" style="max-width:480px"><form method="post"><label>Current password</label><input type="password" name="current" required>
+<label>New email (leave empty to keep)</label><input type="email" name="email" value="{{ email }}"><label>New password (min 8 characters, leave empty to keep)</label><input type="password" name="password">
+<button class="btn">Save</button></form></div>{% endblock %}
